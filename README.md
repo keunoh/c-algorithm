@@ -1,7 +1,8 @@
 # C-Algorithm
 C Algorithm for fun.. 👾🧠👨‍💻🦽
 
-### 재귀(Recursive) 
+### `재귀 알고리즘`
+### 05-1 재귀(Recursive) 
 - 어떤 사건이 자기 자신을 포함하고 다시 자기 자신을 사용하여 정의될 때
 재귀적(recursive)이라고 합니다.
 	
@@ -22,3 +23,10 @@ C Algorithm for fun.. 👾🧠👨‍💻🦽
 	![2022-10-25(direct and indirect)](https://user-images.githubusercontent.com/96904103/197571410-05cfae4c-a0f5-4334-aa2b-a52ff20c0f50.png)
 	
 	- 이처럼 자신과 같은 함수를 호출하면 직접재귀이고, 간접재귀는 함수 a가 함수 b를 호출하고, 다시 함수 b가 함수 a를 호출하는 구조로 이루어집니다.
+
+
+4. `유클리드 호제법(Euclidean method of mutual division)`
+	
+	- 두 정수의 최대공약수(greatest common divisor)를 재귀적으로 구하는 방법 직사각형을 정사각형으로 완전히 채웁니다. 이렇게 만들 수 있는 정사각형의 가장 긴 변의 길이를 	 구하세요.
+	
+	- 이렇게 두 정수가 주어질 경우 큰 값을 작은 값으로 나누었을 때 나누어 떨어지는 가장 작은 값이 최대공약수입니다. 나누어지지 않으면 작은 값(얻은 나머지)에 대해 나누어 	떨어질 때까지 같은 과정을 재귀적으로 반복합니다.
