@@ -1,5 +1,4 @@
 # C-Algorithm
----
 C Algorithm for fun.. 👾🧠👨‍💻🦽
 
 ### 재귀(Recursive) 
