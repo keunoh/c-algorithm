@@ -1,7 +1,7 @@
 # C-Algorithm
 C Algorithm for fun.. 👾🧠👨‍💻🦽
 
-### `재귀(Recursive)`
+### `재귀(Recursive)` ###
 	- 어떤 사건이 자기 자신을 포함하고 다시 자기 자신을 사용하여 정의될 때
 	재귀적(recursive)이라고 합니다.
 	
