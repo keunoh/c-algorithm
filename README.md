@@ -1,7 +1,7 @@
 # C-Algorithm
 C Algorithm for fun.. 👾🧠👨‍💻🦽
 
-### `재귀(Recursive)` ###
+### 재귀(Recursive) 
 - 어떤 사건이 자기 자신을 포함하고 다시 자기 자신을 사용하여 정의될 때
 재귀적(recursive)이라고 합니다.
 	
@@ -14,13 +14,13 @@ C Algorithm for fun.. 👾🧠👨‍💻🦽
 		- ex) 조건 1. 0! = 1
 		조건2. n > 0 이면 n! = n * (n -1)!
 
-	* `재귀호출(Recursive Call)`
+	2. `재귀호출(Recursive Call)`
 	
 		- 재귀 호출은 '함수 자신'을 호출한다고 이해하기보다는 '자기 자신과
 		똑같은 함수'를 호출한다고 이해하는 것이 자연스럽습니다. 만약 진짜로
 		함수 자신을 호출하면 끝없이 자기 자신을 호출하는 행위를 계속할 테니까요.
 	
-	* `직접(direct) 재귀와 간접(indirect) 재귀`  
+	3. `직접(direct) 재귀와 간접(indirect) 재귀`  
 	![2022-10-25(direct and indirect)](https://user-images.githubusercontent.com/96904103/197571410-05cfae4c-a0f5-4334-aa2b-a52ff20c0f50.png)
 	
 		- 이처럼 자신과 같은 함수를 호출하면 직접재귀이고, 간접재귀는 함수 a가
