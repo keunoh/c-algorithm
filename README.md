@@ -1,4 +1,4 @@
-# C-Algorithm
+# C-Algorithm (알고리즘 진행 중)
 C Algorithm for fun.. 👾🧠👨‍💻🦽
 
 ### ---`05 재귀 알고리즘`---
