@@ -1,9 +1,9 @@
-// 버블 정렬 
+// 버블 정렬  
 #include <stdio.h>
 #include <stdlib.h>
 #define swap(type, x, y) do { type t = x; x = y; y = t; } while(0)
 
-// 버블 정렬
+// 버블 정렬 Method
 void bubble(int a[], int n) {
 	int i, j;
 	for(i = 0; i < n - 1; i++){
