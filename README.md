@@ -20,10 +20,7 @@ C Algorithm for fun.. 👾🧠👨‍💻🦽
 	- 재귀 호출은 '함수 자신'을 호출한다고 이해하기보다는 '자기 자신과 똑같은 함수'를 호출한다고 이해하는 것이 자연스럽습니다. 만약 진짜로 함수 자신을 호출하면 끝없이 자	기 자신을 호출하는 행위를 계속할 테니까요.
 	
 3. `직접(direct) 재귀와 간접(indirect) 재귀`  
-	![2022-10-25(direct and indirect)](https://user-images.githubusercontent.com/96904103/197571410-05cfae4c-a0f5-4334-aa2b-a52ff20c0f50.png)
-	
 	- 이처럼 자신과 같은 함수를 호출하면 직접재귀이고, 간접재귀는 함수 a가 함수 b를 호출하고, 다시 함수 b가 함수 a를 호출하는 구조로 이루어집니다.
-
 
 4. `유클리드 호제법(Euclidean method of mutual division)`
 	
