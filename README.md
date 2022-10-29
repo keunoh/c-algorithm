@@ -64,4 +64,3 @@ C Algorithm for fun.. 👾🧠👨‍💻🦽
 
 ### 06-3 단순 선택 정렬(Straight Selection Sort)
 - 단순 선택 정렬은 가장 작은 요소부터 선택해 알맞은 위치로 옮겨서 순서대로 정렬하는 알고리즘입니다.
-- 
