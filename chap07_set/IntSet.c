@@ -37,3 +37,88 @@ void Remove(IntSet *s, int n) {
 		s->set[idx] = s->set[--s->num];	//마지막 요소를 삭제 위치로 옮김 
 	}
 } 
+
+//집합 s에 넣을 수 있는 최대의 원소 개수를 반환
+int Capacity(const IntSet *s) {
+	return s->max;
+} 
+
+//집합 s의 원소 개수를 반환
+int Size(const IntSet *s) {
+	return s->num;
+} 
+
+//집합 s2를 s1에 대입 
+void Assign(IntSet *s1, const IntSet *s2) {
+	int i;
+	int n = (s1->max < s2->num) ? s1->max : s2->num;
+	for(i = 0; i < n; i++)
+		s1->set[i] = s2->set[i];
+	s1->num = n;
+}
+
+//집합s1과 s2가 같은지 확인
+int Equal(const IntSet *s1, const IntSet *s2) {
+	int i, j;
+	if(Size(s1) != Size(s2))
+		return 0;
+	for(i = 0; i < s1->num; i++) {
+		for(j = 0; j < s2->num; j++)
+			if(s1->set[i] == s2->set[j])
+				break;
+			if(j == s2->num)
+				return 0;
+	}
+	return 1;
+} 
+
+//집합 s2와 s3의 합집합을 s1에 대입
+IntSet *Union(IntSet *s1, const IntSet *s2, const IntSet *s3) {
+	int i;
+	Assign(s1, s2);
+	for(i = 0; i < s3->num; i++)
+		Add(s1, s3->set[i]);
+	return s1;
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
