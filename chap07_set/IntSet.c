@@ -82,7 +82,7 @@ IntSet *Union(IntSet *s1, const IntSet *s2, const IntSet *s3) {
 } 
 
 //집합 s2와 s3의 교집합을 s1에 대입
-IntSet *Intersection(IntSet *s1, const IntSet *s3, const IntSet *s3) {
+IntSet *Intersection(IntSet *s1, const IntSet *s2, const IntSet *s3) {
 	int i, j;
 	s1->num = 0;	//s1을 공집합으로 만듭니다.
 	for(i = 0; i < s2->num; i++)
