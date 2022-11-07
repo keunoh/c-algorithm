@@ -81,9 +81,55 @@ IntSet *Union(IntSet *s1, const IntSet *s2, const IntSet *s3) {
 	return s1;
 } 
 
+//집합 s2와 s3의 교집합을 s1에 대입
+IntSet *Intersection(IntSet *s1, const IntSet *s3, const IntSet *s3) {
+	int i, j;
+	s1->num = 0;	//s1을 공집합으로 만듭니다.
+	for(i = 0; i < s2->num; i++)
+		for(j = 0; j < s3->num; j++)
+			if(s2->set[i] == s3->set[j])
+				Add(s1, s2->set[i]);
+	return s1; 
+} 
+
+//집합 s2에서 s3를 뺀 차집합을 s1에 대입
+IntSet *Difference(IntSet *s1, const IntSet *s2, const IntSet *s3) {
+	int i, j;
+	s1->num = 0;	//s1을 공집합으로 만듭니다.
+	for(i = 0; i < s2->num; i++) {
+		for(j = 0; j < s3->num; j++)
+			if(s2->set[i] == s3->set[j])
+				break;
+		if(j == s3->num)
+			Add(s1, s2->set[i]);
+	} 
+	return s1;
+} 
+
+//집합 s의 모든 원소를 출력
+void Print(const IntSet *s) {
+	int i;
+	
+	printf("{ ");
+	for(i = 0; i < s->num; i++)
+		printf("%d ", s->set[i]);
+	printf("}");
+} 
 
 
+//집합 s의 모든 원소를 출력(줄 바꿈 문자 포함)
+void PrintLn(const IntSet *s) {
+	Print(s);
+	putchar('\n');
+} 
 
+//집합 종료
+void Terminate(IntSet *s) {
+	if(s->set != NULL) {
+		free(s->set);	//배열 해제
+		s->max = s->num = 0; 
+	}
+} 
 
 
 
