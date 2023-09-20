@@ -33,7 +33,7 @@ int main(void){
 				break;
 			
 			case 3: //피크
-				if(Peek(&s, &x) == -1)
+				if(MyPeek(&s, &x) == -1)
 					puts("\a오류 : 피크에 실패하였습니다.");
 				else
 					printf("피크 데이터는 %d입니다.\n", x);
