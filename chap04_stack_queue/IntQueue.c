@@ -151,7 +151,7 @@ int IsEmpty(const IntQueue *q)
 //큐가 가득 찼나요?
 int IsFull(const IntQueue *q)
 {
-	return q->num >= q->max
+	return q->num >= q->max;
 } 
 
 /* [큐가 가득 찼는지 검사하는 함수 IsFull ]
