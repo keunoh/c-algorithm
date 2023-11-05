@@ -26,7 +26,7 @@ Node *search(List *list, const Member *x, int compare(const Member *x, const Mem
 void InsertFront(List *list, const Member *x);
 
 /*--- 꼬리에 노드를 삽입 ---*/
-void InsertRear(List *list, cont Member *x);
+void InsertRear(List *list, const Member *x);
 
 /*--- 머리에 노드를 삭제 ---*/
 void RemoveFront(List *list);
