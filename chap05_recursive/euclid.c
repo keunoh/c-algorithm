@@ -5,37 +5,16 @@ int gcd(int x, int y)
 	if (y == 0)
 		return x;
 	else 
-		return gcd(y, x % y);	
-} 
+		return gcd(y, x % y);
+}
 
 int main(void)
 {
 	int x, y;
-	printf("Input two integer : "); scanf("%d %d", &x, &y);
-	printf("GCD is %d\n", gcd(x, y));
-	
+	puts("ë‘ ì •ìˆ˜ì˜ ìµœëŒ€ê³µì•½ìˆ˜ë¥¼ êµ¬í•©ë‹ˆë‹¤.");
+	printf("ì •ìˆ˜ë¥¼ ìž…ë ¥í•˜ì„¸ìš”.\n"); scanf("%d", &x);
+	printf("ì •ìˆ˜ë¥¼ ìž…ë ¥í•˜ì„¸ìš”.\n"); scanf("%d", &y);
+	printf("ìµœëŒ€ê³µì•½ìˆ˜ëŠ” %dìž…ë‹ˆë‹¤.\n", gcd(x, y));
+
 	return 0;
 }
-
-/*
-	À¯Å¬¸®µå È£Á¦¹ý 
-->	Á÷»ç°¢ÇüÀ» Á¤»ç°¢ÇüÀ¸·Î ¿ÏÀüÈ÷ Ã¤¿ó´Ï´Ù. ÀÌ·¸°Ô ¸¸µé ¼ö ÀÖ´Â Á¤»ç°¢ÇüÀÇ °¡Àå ±ä º¯ÀÇ ±æÀÌ¸¦ ±¸ÇÏ¼¼¿ä.
-	1. ÂªÀº º¯ÀÇ ±æÀÌ¸¦ ÇÑ º¯À¸·ÎÇÏ´Â Á¤»ç°¢ÇüÀ¸·Î Ã¤¿ó´Ï´Ù.
-	2. ³²Àº Á÷»ç°¢Çü¿¡ ´ëÇØ °°Àº ÀÛ¾÷À» ¹Ýº¹ÇÕ´Ï´Ù.
-	3. Á¤»ç°¢ÇüÀ¸·Î¸¸ ±¸¼ºµÇ¾úÀ» ¶§ÀÇ º¯ÀÇ ±æÀÌ°¡ ÃÖ´ë°ø¾à¼öÀÔ´Ï´Ù.  
-
-a.	22 * 8 Å©±âÀÇ Á÷»ç°¢Çü¿¡¼­ ÂªÀº º¯(8)À» ÇÑ º¯À¸·Î ÇÏ´Â Á¤»ç°¢ÇüÀ¸·Î ºÐÇÒÇÕ´Ï´Ù.
-	ÀÌ·¸°Ô ÇÏ¸é 8 * 8 Å©±âÀÇ Á¤»ç°¢Çü Å¸ÀÏ 2ÀåÀÌ »ý±é´Ï´Ù. ±×¸®°í 8 * 6 Å©±âÀÇ Á÷»ç°¢ÇüÀÌ 1°³ ³²½À´Ï´Ù.
-b. 	³²Àº 8 * 6 Å©±âÀÇ Á÷»ç°¢ÇüÀ¸·Î ´Ù½Ã °°Àº °úÁ¤À» ¼öÇàÇÕ´Ï´Ù.
-	6 * 6Å©±âÀÇ Á¤»ç°¢ÇüÀÌ 1°³, 6 * 2 Å©±âÀÇ Á÷»ç°¢ÇüÀÌ 1°³ ³²½À´Ï´Ù.
-c.	´Ù½Ã ³²Àº 6 * 2 Å©±âÀÇ Á÷»ç°¢ÇüÀ¸·Î °°Àº °úÁ¤À» ¼öÇàÇÕ´Ï´Ù. 
-	ÀÌ¹ø¿¡´Â 2 * 2 Å©±âÀÇ Á¤»ç°¢Çü 3°³·Î ³ª´­ ¼ö ÀÖ½À´Ï´Ù.
-	¿©±â¼­ ¾òÀº 2°¡ ÃÖ´ë°ø¾à¼öÀÔ´Ï´Ù.
-	
-	ÀÌ·¸°Ô µÎ Á¤¼ö°¡ ÁÖ¾îÁú °æ¿ì Å« °ªÀ» ÀÛÀº °ªÀ¸·Î ³ª´©¾úÀ» ¶§ ³ª´©¾î¶³¾îÁö´Â °¡Àå ÀÛÀº °ªÀÌ ÃÖ´ë°ø¾à¼öÀÔ´Ï´Ù.
-	³ª´©¾îÁöÁö ¾ÊÀ¸¸é ÀÛÀº °ª(¾òÀº ³ª¸ÓÁö)¿¡ ´ëÇØ ³ª´©¾î ¶³¾îÁú¶§±îÁö °°Àº °úÁ¤À» Àç±ÍÀûÀ¸·Î ¹Ýº¹ÇÕ´Ï´Ù.
-	ÀÌ °úÁ¤À» Á» ´õ ¼öÇÐÀûÀ¸·Î Ç¥ÇöÇÏ±â À§ÇØ µÎ Á¤¼ö x, yÀÇ ÃÖ´ë°ø¾à¼ö¸¦ gcd(x, y)·Î Ç¥±âÇÏ°Ú½À´Ï´Ù.
-	x = az¿Í y = bz¸¦ ¸¸Á·ÇÏ´Â Á¤¼ö a, b¿Í ÃÖ´ëÀÇ Á¤¼ö z°¡ Á¸ÀçÇÒ ¶§ z¸¦ gcd(x, y)¶ó°í ÇÒ ¼ö ÀÖ½À´Ï´Ù.
-	´Ù½Ã ¸»ÇØ ÃÖ´ë°ø¾à¼ö´Â y°¡ 0ÀÌ¸é xÀÌ°í, y°¡ 0ÀÌ ¾Æ´Ï¸é gcd(y, x % y)·Î ±¸ÇÕ´Ï´Ù.
-	ÀÌ ¾Ë°í¸®ÁòÀ» À¯Å¬¸®µå È£Á¦¹ý(Euclidean method of mutual division)ÀÌ¶ó°í ÇÕ´Ï´Ù.	
-*/
