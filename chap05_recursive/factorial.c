@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+//이 함수는 정수를 반환하는 함수다.
 int factorial(int n)
 {
 	if (n > 0)
