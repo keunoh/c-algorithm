@@ -2,29 +2,18 @@
 
 int factorial(int n)
 {
-	if(n > 0)
+	if (n > 0)
 		return n * factorial(n - 1);
 	else
 		return 1;
 }
-int main(void)
+
+int main(void) 
 {
 	int x;
-	printf("integer : "); scanf("%d", &x);
-	
-	printf("factorial[%d] = %d\n", x, factorial(x));
+	printf("ì •ìˆ˜ë¥¼ ìž…ë ¥í•˜ì„¸ìš” : ");
+	scanf("%d", &x);
+	printf("%dì˜ ìˆœì°¨ê³±ì…ˆ ê°’ì€ %dìž…ë‹ˆë‹¤.\n", x, factorial(x));
 
 	return 0;
 }
-
-/**
-a. ÇÔ¼ö È£Ãâ½Ä factorial(3)À» ½ÇÇàÇÏ¸é factorial ÇÔ¼ö°¡ ½ÃÀÛµË´Ï´Ù. ÀÌ ÇÔ¼ö´Â ¸Å°³º¯¼ö n¿¡ 3À» Àü´Þ¹Þ¾Æ
-   3 * factorial(2)¸¦ ¹ÝÈ¯ÇÕ´Ï´Ù. ±×·±µ¥ ÀÌ °ö¼ÀÀ» ¼öÇàÇÏ·Á¸é factorial(2)ÀÇ °ªÀ» ±¸ÇØ¾ßÇÕ´Ï´Ù.
-   2¸¦ ´Ù½Ã ¸Å°³º¯¼ö·Î Àü´ÞÇÏ°í factorial ÇÔ¼ö¸¦ È£ÃâÇÕ´Ï´Ù. 
-b. È£ÃâµÈ factorial ÇÔ¼ö´Â ¸Å°³º¯¼ö n¿¡ 2¸¦ Àü´Þ¹Þ½À´Ï´Ù. ´Ù½Ã °ö¼À 2 * factorial(1)À» ¼öÇàÇÏ±â À§ÇØ factorial ÇÔ¼ö¸¦ È£ÃâÇÕ´Ï´Ù.
-c. ´Ù½Ã È£ÃâµÈ factorial ÇÔ¼ö´Â ¸Å°³º¯¼ö n¿¡ 1À» Àü´Þ¹Þ½À´Ï´Ù. 1 * factorial(0)À» ¼öÇàÇÏ±â À§ÇØ factorial ÇÔ¼ö¸¦ È£ÃâÇÕ´Ï´Ù.
-d. È£ÃâµÈ factorial ÇÔ¼ö´Â ¸Å°³º¯¼ö n¿¡ Àü´Þ¹ÞÀº °ªÀÌ 0ÀÌ¹Ç·Î 1À» ¹ÝÈ¯ÇÕ´Ï´Ù.
---> ÀÌ·¯ÇÑ ÇÔ¼ö È£Ãâ ¹æ½ÄÀ» Àç±Í È£Ãâ(Recursive call)ÀÌ¶ó°í ÇÕ´Ï´Ù.
-	Àç±ÍÈ£ÃâÀº 'ÇÔ¼ö ÀÚ½Å'À» È£ÃâÇÑ´Ù°í ÀÌÇØÇÏ±âº¸´Ù´Â 'ÀÚ±â ÀÚ½Å°ú ¶È°°Àº ÇÔ¼ö'¸¦ È£ÃâÇÑ´Ù°í ÀÌÇØÇÏ´Â °ÍÀÌ ÀÚ¿¬½º·´½À´Ï´Ù.
-	¸¸¾à ÁøÂ¥·Î ÇÔ¼ö ÀÚ½ÅÀ» È£ÃâÇÏ¸é ³¡¾øÀÌ ÀÚ±â ÀÚ½ÅÀ» È£ÃâÇÏ´Â ÇàÀ§¸¦ °è¼ÓÇÒÅ×´Ï±î¿ä. 
-*/
