@@ -37,7 +37,7 @@ int cover(vector<vector<int> >& board) {
                 y = i;
                 x = j;
                 break;
-            }
+            } 
         if(y != -1) break;
     }
     //기저 사례: 모든 칸을 채웠으면 1을 반환한다.
