@@ -1,9 +1,9 @@
-//Á¤·ÄÀ» ¸¶Ä£ ¹è¿­À» º´ÇÕÇÏ´Â ÇÁ·Î±×·¥
+/* ì •ë ¬ì„ ë§ˆì¹œ ë°°ì—´ì„ ë³‘í•©í•˜ëŠ” í”„ë¡œê·¸ë¨(ì´ë¯¸ ì •ë ¬ëœ ìƒíƒœ) */
 #include <stdio.h>
 #include <stdlib.h>
-
-//Á¤·ÄÀ» ¸¶Ä£ ¹è¿­ a¿Í b¸¦ º´ÇÕÇÏ¿© c¿¡ ÀúÀå
-void merge(const int a[], int na, const int b[], int nb, int c[]) {
+/*--- ì •ë ¬ì„ ë§ˆì¹œ ë°°ì—´ aì™€ bë¥¼ ë³‘í•©í•˜ì—¬ cì— ì €ì¥ ---*/
+void merge(const int a[], int na, const int b[], int nb, int c[])
+{
 	int pa = 0;
 	int pb = 0;
 	int pc = 0;
@@ -13,39 +13,36 @@ void merge(const int a[], int na, const int b[], int nb, int c[]) {
 		c[pc++] = a[pa++];
 	while(pb < nb)
 		c[pc++] = b[pb++];
-} 
+}
 
-int main(void) {
+int main()
+{
 	int i, na, nb;
 	int *a, *b, *c;
-	printf("aÀÇ ¿ä¼Ò °³¼ö : "); scanf("%d", &na);
-	printf("bÀÇ ¿ä¼Ò °³¼ö : "); scanf("%d", &nb);
+	printf("aì˜ ìš”ì†Œ ê°œìˆ˜ : "); scanf("%d", &na);
+	printf("bì˜ ìš”ì†Œ ê°œìˆ˜ : "); scanf("%d", &nb);
 	a = calloc(na, sizeof(int));
 	b = calloc(nb, sizeof(int));
 	c = calloc(na + nb, sizeof(int));
-	printf("a[0] : ");
-	scanf("%d", &a[0]);
+	printf("a[0] : "); scanf("%d", &a[0]);
 	for(i = 1; i < na; i++) {
 		do {
-			printf("a[%d] : ", i);
-			scanf("%d", &a[i]);
-		} while(a[i] < a[i - 1]);
+			printf("a[%d] : ", i); scanf("%d", &a[i]);
+		} while(a[i] < a[i-1]);
 	}
-	printf("b[0] : ");
-	scanf("%d", &b[0]);
+	printf("b[0] : "); scanf("%d", &b[0]);
 	for(i = 1; i < nb; i++) {
 		do {
-			printf("b[%d] : ", i);
-			scanf("%d", &b[i]);
-		} while(b[i] < b[i - 1]);
+			printf("b[%d] : ", i); scanf("%d", &b[i]);
+		} while(b[i] < b[i-1]);
 	}
-	
-	//¹è¿­ a¿Í b¸¦ º´ÇÕÇÏ¿© c¿¡ ÀúÀå
+
+	/*ë°°ì—´ aì™€ bë¥¼ ë³‘í•©í•˜ì—¬ cì— ì €ì¥*/
 	merge(a, na, b, nb, c);
-	puts("¹è¿­ a¿Íb¸¦ º´ÇÕÇÏ¿© ¹è¿­ c¿¡ ÀúÀåÇß½À´Ï´Ù.");
+	puts("ë°°ì—´ aì™€ bë¥¼ ë³‘í•©í•˜ì—¬ ë°°ì—´ cì— ì €ì¥í–ˆìŠµë‹ˆë‹¤.");
 	for(i = 0; i < na + nb; i++)
 		printf("c[%2d] = %2d\n", i, c[i]);
 	free(a); free(b); free(c);
-	
-	return 0; 
+
+	return 0;
 }
