@@ -32,3 +32,9 @@ int mergesort(int a[], int n)
 	free(buff);
 	return 0;
 }
+
+int main(){
+	int i, nx;
+	int *x;
+	
+}
