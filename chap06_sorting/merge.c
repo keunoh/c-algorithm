@@ -1,63 +1,34 @@
-//º´ÇÕ Á¤·Ä ÇÁ·Î±×·¥
+/* ë³‘í•© ì •ë ¬ í”„ë¡œê·¸ëž¨ */
 #include <stdio.h>
 #include <stdlib.h>
 
-static int *buff;	//ÀÛ¾÷¿ë ¹è¿­
+static int *buff;	/* ìž‘ì—…ìš© ë°°ì—´ */
 
-//º´ÇÕ Á¤·Ä(main)
-static void __mergesort (int a[], int left, int right) {
+/*--- ë³‘í•© ì •ë ¬(main) ---*/
+static void __mergesort(int a[], int left, int right)
+{
 	if(left < right) {
 		int center = (left + right) / 2;
 		int p = 0;
 		int i;
 		int j = 0;
 		int k = left;
-		__mergesort(a, left, center);			//¾Õ ºÎºÐ¿¡ ´ëÇÑ º´ÇÕ Á¤·Ä
-		__mergesort(a, center + 1, right);		//µÞ ºÎºÐ¿¡ ´ëÇÑ º´ÇÕ Á¤·Ä 
+		__mergesort(a, left, center); 		/* ì•žë¶€ë¶„ì— ëŒ€í•œ ë³‘í•© ì •ë ¬ */
+		__mergesort(a, center + 1, right);	/* ë’·ë¶€ë¶„ì— ëŒ€í•œ ë³‘í•© ì •ë ¬ */
 		for(i = left; i <= center; i++)
 			buff[p++] = a[i];
 		while(i <= right && j < p)
 			a[k++] = (buff[j] <= a[i]) ? buff[j++] : a[i++];
 		while(j < p)
-			a[k++] = buff[j++]; 
+			a[k++] = buff[j++];
 	}
-} 	
-
-//º´ÇÕ Á¤·Ä ÇÔ¼ö
-int mergesort(int a[], int n) {
-	if((buff = calloc(n, sizeof(int))) == NULL)
-		return -1;
-	__mergesort(a, 0, n - 1);	//¹è¿­ ÀüÃ¼¸¦ º´ÇÕ Á¤·Ä
-	free(buff);
-	return 0; 
-} 
-
-int main(void) {
-	int i, nx;
-	int *x;			//¹è¿­ÀÇ Ã¹ ¹øÂ° ¿ä¼Ò¿¡ ´ëÇÑ Æ÷ÀÎÅÍ
-	puts("º´ÇÕ Á¤·Ä");
-	printf("¿ä¼Ò °³¼ö : ");
-	scanf("%d", &nx);
-	x = calloc(nx, sizeof(int));
-	
-	for(i = 0; i < nx; i++) {
-		printf("x[%d] : ", i);
-		scanf("%d", &x[i]);
-	}
-	mergesort(x, nx);		//¹è¿­ x¸¦ º´ÇÕ Á¤·Ä
-	puts("¿À¸§Â÷¼øÀ¸·Î Á¤·ÄÇß½À´Ï´Ù.");
-	for(i = 0; i < nx; i++)
-		printf("x[%d] = %d\n", i, x[i]);
-		free(x);
-		
-	return 0; 
 }
 
-
-
-
-
-
-
-
-
+/*--- ë³‘í•© ì •ë ¬ í•¨ìˆ˜ ---*/
+int mergesort(int a[], int n)
+{
+	if((buff = calloc(n, sizeof(int))) == NULL) return -1;
+	__mergesort(a, 0, n-1);	/* ë°°ì—´ ì „ì²´ë¥¼ ë³‘í•© ì •ë ¬ */
+	free(buff);
+	return 0;
+}
