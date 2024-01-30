@@ -11,7 +11,7 @@ void decompress(string::iterator& it, int y, int x, int size) {
     if(head == 'b' || head == 'w') {
         for(int dy = 0; dy < size; ++dy)
             for(int dx = 0; dx < size; ++dx)
-                decompress[y+dy][x+dx] = head;
+                decompressed[y+dy][x+dx] = head;
     }
     else {
         //네 부분을 각각 순서대로 압축 해제한다.
