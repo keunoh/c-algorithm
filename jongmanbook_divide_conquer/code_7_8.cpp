@@ -13,7 +13,7 @@ int solve(int left, int right) {
     //분할한 문제를 각개격파
     int ret = max(solve(left, mid), solve(mid+1, right));
     //부분 문제 3: 두 부분에 모두 걸치는 사각형 중 가장 큰 것을 찾는다.
-    int log = mid, hi = mid+1;
+    int lo = mid, hi = mid+1;
     int height = min(h[lo], h[hi]);
     //[mid, mid+1]만 포함하는 너비 2인 사각형을 고려한다.
     ret = max(ret, height * 2);
