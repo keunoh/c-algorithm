@@ -18,4 +18,14 @@ bool matchMemoized(int w, int s) {
         ++w;
         ++s;
     }
+    //더이상 대응할 수 없으면 왜 while문이 끝났는지 확인한다.
+    //2. 패턴 끝에 도달해서 끝난 경우: 문자열도 끝났어야 함
+    if(w == W.size()) return ret = (s == S.size());
+    //4. *를 만나서 끝난 경우: *에 몇 글자를 대응해야 할지 재귀 호출하면서 확인한다.
+    if(W[w] == '*')
+        for(int skip = 0; skip+s <= S.size(); ++skip)
+            if(matchMemoized(w+1, s+skip))
+                return ret = 1;
+    //3. 이 외의 경우에는 모두 대응되지 않는다.
+    return ret = 0;
 }
