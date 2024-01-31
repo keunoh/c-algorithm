@@ -1,13 +1,13 @@
-//Äü Á¤·Ä
+/*í€µ ì •ë ¬*/
 #include <stdio.h>
 #include <stdlib.h>
 #define swap(type, x, y) do { type t = x; x = y; y = t; } while(0)
 
-//Äü Á¤·Ä ÇÔ¼ö
-void quick (int a[], int left, int right) {
-	int pl = left;				//¿ÞÂÊ Ä¿¼­ 
-	int pr = right;				//¿À¸¥ÂÊ Ä¿¼­
-	int x = a[(pl + pr) / 2];	//ÇÇ¹þÀº °¡¿îµ¥ ¿ä¼Ò¸¦ ¼±ÅÃÇÕ´Ï´Ù. 
+/*--- í€µ ì •ë ¬ í•¨ìˆ˜ ---*/
+void quick(int a[], int left, int right) {
+	int pl = left;
+	int pr = right;
+	int x = a[(pl + pr) / 2];
 	do {
 		while(a[pl] < x) pl++;
 		while(a[pr] > x) pr--;
@@ -18,25 +18,5 @@ void quick (int a[], int left, int right) {
 		}
 	} while(pl <= pr);
 	if(left < pr) quick(a, left, pr);
-	if(pl < right) quick(a, pl, right);
+	if(pl < right) qucik(a, pl, right);
 }
-
-int main(void) {
-	int i, nx;
-	int *x;			//¹è¿­ÀÇ Ã¹ ¹øÂ° ¿ä¼Ò¿¡ ´ëÇÑ Æ÷ÀÎÅÍ
-	puts("Äü Á¤·Ä");
-	printf("¿ä¼Ò °³¼ö : ");
-	scanf("%d", &nx);
-	x = calloc(nx, sizeof(int));
-	for(i = 0; i < nx; i++) {
-		printf("x[%d] : ", i);
-		scanf("%d", &x[i]);
-	} 
-	quick(x, 0, nx - 1);	//¹è¿­ x¿¡ ´ëÇØ¼­ Äü Á¤·ÄÇÕ´Ï´Ù.
-	puts("¿À¸§Â÷¼øÀ¸·Î Á¤·ÄÇß½À´Ï´Ù.");
-	for(i = 0; i < nx; i++)
-		printf("x[%d] = %d\n", i, x[i]);
-	free(x);		//¹è¿­À» ÇØÁ¦
-	
-	return 0; 
-} 
