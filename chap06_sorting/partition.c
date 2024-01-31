@@ -1,16 +1,18 @@
-//¹è¿­À» ³ª´©´Â ÇÁ·Î±×·¥
+/*ë°°ì—´ì„ ë‚˜ëˆ„ëŠ” í”„ë¡œê·¸ë¨*/
 #include <stdio.h>
 #include <stdlib.h>
 
 #define swap(type, x, y) do { type t = x; x = y; y = t;} while(0)
 
-//¹è¿­À» ³ª´©´Â ÇÔ¼ö
-void partition(int a[], int n) {
+/*--- ë°°ì—´ì„ ë‚˜ëˆ„ëŠ” í•¨ìˆ˜ ---*/
+void partition(int a[], int n)
+{
 	int i;
-	int pl = 0;			//¿ŞÂÊ Ä¿¼­
-	int pr = n - 1;		//¿À¸¥ÂÊ Ä¿¼­
-	int x = a[n / 2];	//ÇÇ¹şÀº °¡¿îµ¥ ¿ä¼Ò¸¦ ¼±ÅÃÇÕ´Ï´Ù. 
-	do {
+	int pl = 0;			//ì™¼ìª½ ì»¤ì„œ
+	int pr = n - 1;		//ì˜¤ë¥¸ìª½ ì»¤ì„œ
+	int x = a[n / 2];	//í”¼ë²—ì€ ê°€ìš´ë° ìš”ì†Œ
+
+	do { 
 		while(a[pl] < x) pl++;
 		while(a[pr] > x) pr--;
 		if(pl <= pr) {
@@ -19,36 +21,16 @@ void partition(int a[], int n) {
 			pr--;
 		}
 	} while(pl <= pr);
-	printf("ÇÇ¹şÀÇ °ªÀº %dÀÔ´Ï´Ù.\n", x);
-	printf("ÇÇ¹ş ÀÌÇÏÀÇ ±×·ì\n");		//ÇÇ¹ş ÀÌÇÏÀÇ ±×·ì
-	for(i = 0; i <= pl - 1; i++)		//a[0] ~ a[pl -1]
-		printf("%d ", a[i]);
-	putchar('\n');
+
 	if(pl > pr + 1) {
-		printf("ÇÇ¹ş°ú ÀÏÄ¡ÇÏ´Â ±×·ì\n");	//ÇÇ¹ş°ú °°Àº ±×·ì
-		for(i = pr + 1; i <= pl - 1; i++)	//a[pr + 1] ~ a[pl - 1]
+		for(i = pr + 1; i <= pl - 1; i++)
 			printf("%d ", a[i]);
-		putchar('\n'); 
-	} 
-	printf("ÇÇ¹ş ÀÌ»óÀÇ ±×·ì\n");		//ÇÇ¹ş ÀÌ»óÀÇ ±×·ì
-	for(i = pr + 1; i < n; i++)			//a[pr + 1] ~ a[n -1]
-		printf("%d ", a[i]);
-	putchar('\n'); 
+		for(i = pr + 1; i < n; i++)
+			printf("%d ", a[i]);
+	}
 }
 
-int main(void) {
-	int i, nx;
-	int *x;			//¹è¿­ÀÇ Ã¹ ¹øÂ° ¿ä¼Ò¿¡ ´ëÇÑ Æ÷ÀÎÅÍ
-	puts("¹è¿­À» ³ª´¯´Ï´Ù.");
-	printf("¿ä¼Ò °³¼ö : ");
-	scanf("%d", &nx);
-	x = calloc(nx, sizeof(int));		//¿ä¼ÒÀÇ °³¼ö°¡ nxÀÎ intÇü ¹è¿­À» »ı¼º 
-	for(i = 0; i < nx; i++) {
-		printf("x[%d] : ", i);
-		scanf("%d", &x[i]);
-	}
-	partition(x, nx);		//¹è¿­ x¸¦ ºĞÇÒ
-	free(x);				//¹è¿­À» ÇØÁ¦
-	
-	return 0; 
-} 
+int main() {
+	int *x;		//ë°°ì—´ì˜ ì²« ë²ˆì§¸ ìš”ì†Œì— ëŒ€í•œ í¬ì¸í„°
+	partiton(x, nx);
+}
