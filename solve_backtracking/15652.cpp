@@ -6,22 +6,22 @@ int n,m;
 int arr[MAX] = {0, };
 bool visited[MAX] = {0, };
 
-void dfs(int num, int cnt) {
+void dfs(int cnt) {
     if (cnt == m) {
         for(int i = 0; i < m; i++)
             cout << arr[i] << ' ';
         cout << '\n';
         return;
     }
-    for(int i = num; i <= n; i++) {
+    for(int i = 1; i <= n; i++) {
         visited[i] = true;
         arr[cnt] = i;
-        dfs(i,cnt+1);
+        dfs(cnt+1);
         visited[i] = false;
     }
 }
 
 int main() {
     cin >> n >> m;
-    dfs(1,0);
+    dfs(0);
 }
