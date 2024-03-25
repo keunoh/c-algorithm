@@ -1,58 +1,72 @@
 #include <iostream>
 #include <queue>
-#include <utility>
+#include <stdio.h>
+#include <cstring>
+
+#define MAX_SIZE 1000 + 1
+
 using namespace std;
 
-int n, m, h;
-int tomato[102][102][102];
-int dz[6] = { 0,0,0 ,0,-1,1 };
-int dx[6] = {0,0 ,1,-1,0,0};
-int dy[6] = {-1,1,0,0,0,0 };
+struct tomato {
+    int y, x;
+};
 
-int dist[102][102][102];
-int day = 0;
+queue<tomato> q;
+
+//우, 하, 좌, 상
+int dx[4] = {1, 0, -1, 0};
+int dy[4] = {0, 1, 0, -1};
+
+int n, m, result = 0;
+int graph[MAX_SIZE][MAX_SIZE];
+
+bool IsInside(int ny, int nx) {
+    return (0 <= nx && 0 <= ny && nx < m && ny < n);
+}
+
+void bfs(void) {
+    while(!q.empty()) {
+        int y = q.front().y;
+        int x = q.front().x;
+        q.pop();
+
+        for(int i = 0; i < 4; i++) {
+            int ny = y + dy[i];
+            int nx = x + dx[i];
+
+            if(IsInside(ny ,nx) == 1 && graph[ny][nx] == 0) {
+                graph[ny][nx] = graph[y][x] + 1;
+                q.push({ny, nx});
+            }
+        }
+    }
+}
 
 int main() {
-	ios::sync_with_stdio(NULL);
-	cin.tie(NULL);
-	cin >> m >> n >> h;
-	queue<pair<pair<int,int>,int>> Q;
-	for (int i = 0; i < h; i++) {
-		for (int j = 0; j < n; j++) {
-			for(int k = 0; k < m ; k++) {
-				cin >> tomato[i][j][k];
-				if (tomato[i][j][k] == 1) {
-					Q.push({ {i,j},k });
-				}
-				if (tomato[i][j][k] == 0)
-					dist[i][j][k] = -1;
-			}
-		}
-	}
-	while (!Q.empty()) {
-		pair<pair<int, int>, int> cur = Q.front();
-		Q.pop();
-		for (int i = 0; i < 6; i++) {
-			int nz = cur.first.first + dz[i];
-			int nx = cur.first.second+ dx[i];
-			int ny = cur.second + dy[i];
-			
-			if (nx < 0 || nx >= n || ny < 0 || ny >= m || nz < 0 || nz >= h) continue;
-			if (dist[nz][nx][ny] >= 0) continue;
-			dist[nz][nx][ny] = dist[cur.first.first][cur.first.second][cur.second] + 1;
-			Q.push({{ nz,nx },ny});
-		}
-	}
-	for (int i = 0; i < h; i++) {
-		for (int j = 0; j < n; j++) {
-			for (int k = 0; k < m; k++) {
-				if (dist[i][j][k] == -1) {
-					cout << -1;
-					return 0;
-				}
-				day = max(day, dist[i][j][k]);
-			}
-		}
-	}
-	cout << day;
+    cin >> m >> n;
+
+    for(int i = 0; i < n; i++) {
+        for(int j = 0; j < m; j++) {
+            cin >> graph[i][j];
+            if(graph[i][j] == 1) {
+                q.push({i, j});
+            }
+        }
+    }
+
+    bfs();
+
+    for(int i = 0; i < n; i++) {
+        for(int j = 0; j < m; j++) {
+            if(graph[i][j] == 0) {
+                cout << "-1" << endl;
+                return 0;
+            }
+            if(result < graph[i][j]) {
+                result = graph[i][j];
+            }
+        }
+    }
+    cout << result - 1 << endl;
+    
 }
