@@ -49,6 +49,7 @@ int main(void)
     G[end][start] = 1;
   }
   BFS(1);
+  // test
   cout << counttt << '\n';
   return 0;
 }
