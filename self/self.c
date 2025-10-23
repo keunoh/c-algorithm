@@ -39,8 +39,31 @@ bool isPrime(int n) {
   return true;  
 }
 
+void mySort(vector<int>& arr);
+
+string toString(const vector<int>& array);
+
 int main(void) {
   
+  while(true) {
+    int n = rand() % 100 + 1;
+    vector<int> input(n);
+    for(int i = 0; i < n; ++i)
+      input[i] = rand();
+    
+    vector<int> mySorted = input;
+    mySort(mySorted);
+    vector<int> reference = input;
+    sort(reference.begin(), reference.end());
+
+    if(mySorted != reference) {
+      cout << "Mismatch found!" << endl;
+      cout << "Input: " << toString(input) << endl;
+      cout << "My Sort: " << toString(mySorted) << endl;
+      cout << "Reference: " << toString(reference) << endl;
+      break;
+    }
+  }
 
   return 0;
 }
